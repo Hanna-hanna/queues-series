@@ -39,7 +39,8 @@ class ReconcileAccount implements ShouldQueue
 
     public function handle(Filesystem $file)
     {
-        $file->put(public_path('testing2.txt'), 'Reconciling the user:' . $this->user->name);
+        throw new \Exception('Wow!');
+        //$file->put(public_path('testing2.txt'), 'Reconciling the user:' . $this->user->name);
         logger('Reconciling the user:' . $this->user->name);
     }
 }
