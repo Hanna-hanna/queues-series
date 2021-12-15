@@ -11,7 +11,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 
 
-class ReconcileAccount implements ShouldQueue
+class Reconcile implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -32,15 +32,15 @@ class ReconcileAccount implements ShouldQueue
      *
      * @return void
      */
-    // public function handle()
+    public function handle()
+    {
+        logger('Nie widzi:' . $this->user->name);
+    }
+
+    // public function handle(Filesystem $file)
     // {
+    //     //throw new \Exception('Wow!');
+    //     $file->put(public_path('testing2.txt'), 'Reconciling the user:' . $this->user->name);
     //     logger('Reconciling the user:' . $this->user->name);
     // }
-
-    public function handle(Filesystem $file)
-    {
-        throw new \Exception('Wow!');
-        //$file->append(public_path('testing2.txt'), 'Reconciling the user:' . $this->user->name);
-        logger('Reconciling the user:' . $this->user->name);
-    }
 }
